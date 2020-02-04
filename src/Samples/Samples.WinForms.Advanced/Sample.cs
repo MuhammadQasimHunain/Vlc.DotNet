@@ -14,6 +14,8 @@ namespace Samples.WinForms.Advanced
 {
     public partial class Sample : Form
     {
+        public string FileSourceInput { get; set; }
+
         public Sample()
         {
             InitializeComponent();
@@ -73,8 +75,12 @@ namespace Samples.WinForms.Advanced
 
         private void OnButtonPlayClicked(object sender, EventArgs e)
         {
-            myVlcControl.Play(new Uri("http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_surround-fix.avi"));
-            //myVlcControl.Play(new FileInfo(@"..\..\..\Vlc.DotNet\Samples\Videos\BBB trailer.mov"));
+            if (!(string.IsNullOrEmpty(FileSourceInput) || string.IsNullOrEmpty(lblFileSource.Text)))
+            {
+                myVlcControl.Play(new FileInfo(FileSourceInput));
+            }
+            //myVlcControl.Play(new Uri("http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_surround-fix.avi"));
+
         }
 
         private void OnButtonStopClicked(object sender, EventArgs e)
@@ -217,7 +223,7 @@ namespace Samples.WinForms.Advanced
 
         private void myVlcControl_MouseClick(object sender, MouseEventArgs e)
         {
-            myVlcControl.Focus();            
+            myVlcControl.Focus();
         }
 
         private void myVlcControl_MouseDown(object sender, MouseEventArgs e)
@@ -239,8 +245,37 @@ namespace Samples.WinForms.Advanced
 
         private void myBtnEnableMouseEvents_Click(object sender, EventArgs e)
         {
-            myVlcControl.Video.IsMouseInputEnabled= true;
+            myVlcControl.Video.IsMouseInputEnabled = true;
             myVlcControl.Video.IsKeyInputEnabled = true;
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            if (openMediaFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                lblFileSource.Text = openMediaFileDialog.FileName;
+                FileSourceInput = openMediaFileDialog.FileName;
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var mediaOptions = new[]
+            {
+                    @":sout=#rtp{sdp=rtsp://127.0.0.1:4444/}",
+                    @":sout-keep"
+            };
+
+            myVlcControl.SetMedia(new FileInfo(lblFileSource.Text),
+                mediaOptions);
+            myVlcControl.Play();
+            lblFileStatus.Text = "Streaming on rtsp://127.0.0.1:4444/";
+
         }
     }
 }

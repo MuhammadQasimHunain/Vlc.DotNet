@@ -56,6 +56,12 @@
             this.myVlcControl = new Vlc.DotNet.Forms.VlcControl();
             this.label4 = new System.Windows.Forms.Label();
             this.myCbxAudioOutputs = new System.Windows.Forms.ComboBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.openMediaFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.lblFileSource = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblFileStatus = new System.Windows.Forms.Label();
             this.myGrpAudioInformations.SuspendLayout();
             this.myGrpVideoInformations.SuspendLayout();
             this.myGrpMouseInformations.SuspendLayout();
@@ -65,7 +71,7 @@
             // myBtnPlay
             // 
             this.myBtnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myBtnPlay.Location = new System.Drawing.Point(12, 356);
+            this.myBtnPlay.Location = new System.Drawing.Point(12, 406);
             this.myBtnPlay.Name = "myBtnPlay";
             this.myBtnPlay.Size = new System.Drawing.Size(75, 23);
             this.myBtnPlay.TabIndex = 1;
@@ -76,7 +82,7 @@
             // myBtnStop
             // 
             this.myBtnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myBtnStop.Location = new System.Drawing.Point(174, 356);
+            this.myBtnStop.Location = new System.Drawing.Point(174, 406);
             this.myBtnStop.Name = "myBtnStop";
             this.myBtnStop.Size = new System.Drawing.Size(75, 23);
             this.myBtnStop.TabIndex = 2;
@@ -88,7 +94,7 @@
             // 
             this.myLblMediaLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.myLblMediaLength.AutoSize = true;
-            this.myLblMediaLength.Location = new System.Drawing.Point(328, 361);
+            this.myLblMediaLength.Location = new System.Drawing.Point(328, 411);
             this.myLblMediaLength.Name = "myLblMediaLength";
             this.myLblMediaLength.Size = new System.Drawing.Size(49, 13);
             this.myLblMediaLength.TabIndex = 3;
@@ -98,7 +104,7 @@
             // 
             this.myLblVlcPosition.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.myLblVlcPosition.AutoSize = true;
-            this.myLblVlcPosition.Location = new System.Drawing.Point(255, 361);
+            this.myLblVlcPosition.Location = new System.Drawing.Point(255, 411);
             this.myLblVlcPosition.Name = "myLblVlcPosition";
             this.myLblVlcPosition.Size = new System.Drawing.Size(49, 13);
             this.myLblVlcPosition.TabIndex = 4;
@@ -108,7 +114,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(310, 361);
+            this.label2.Location = new System.Drawing.Point(310, 411);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(12, 13);
             this.label2.TabIndex = 5;
@@ -118,17 +124,17 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(396, 361);
+            this.label1.Location = new System.Drawing.Point(396, 411);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "State:";
+            this.label1.Text = "State";
             // 
             // myLblState
             // 
             this.myLblState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.myLblState.AutoSize = true;
-            this.myLblState.Location = new System.Drawing.Point(437, 361);
+            this.myLblState.Location = new System.Drawing.Point(437, 411);
             this.myLblState.Name = "myLblState";
             this.myLblState.Size = new System.Drawing.Size(0, 13);
             this.myLblState.TabIndex = 7;
@@ -136,7 +142,7 @@
             // myBtnPause
             // 
             this.myBtnPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.myBtnPause.Location = new System.Drawing.Point(93, 356);
+            this.myBtnPause.Location = new System.Drawing.Point(93, 406);
             this.myBtnPause.Name = "myBtnPause";
             this.myBtnPause.Size = new System.Drawing.Size(75, 23);
             this.myBtnPause.TabIndex = 8;
@@ -320,13 +326,12 @@
             // 
             // myVlcControl
             // 
-            this.myVlcControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.myVlcControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.myVlcControl.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.myVlcControl.Location = new System.Drawing.Point(12, 12);
             this.myVlcControl.Name = "myVlcControl";
-            this.myVlcControl.Size = new System.Drawing.Size(564, 338);
+            this.myVlcControl.Size = new System.Drawing.Size(564, 388);
             this.myVlcControl.Spu = -1;
             this.myVlcControl.TabIndex = 0;
             this.myVlcControl.Text = "vlcRincewindControl1";
@@ -367,11 +372,72 @@
             this.myCbxAudioOutputs.Size = new System.Drawing.Size(143, 21);
             this.myCbxAudioOutputs.TabIndex = 17;
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBrowse.Location = new System.Drawing.Point(726, 406);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 19;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // openMediaFileDialog
+            // 
+            this.openMediaFileDialog.FileName = "openFileDialog1";
+            // 
+            // lblFileSource
+            // 
+            this.lblFileSource.AutoSize = true;
+            this.lblFileSource.Location = new System.Drawing.Point(628, 414);
+            this.lblFileSource.Name = "lblFileSource";
+            this.lblFileSource.Size = new System.Drawing.Size(16, 13);
+            this.lblFileSource.TabIndex = 20;
+            this.lblFileSource.Text = "---";
+            this.lblFileSource.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(579, 411);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Source";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(498, 406);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Stream";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblFileStatus
+            // 
+            this.lblFileStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblFileStatus.AutoSize = true;
+            this.lblFileStatus.Location = new System.Drawing.Point(585, 371);
+            this.lblFileStatus.Name = "lblFileStatus";
+            this.lblFileStatus.Size = new System.Drawing.Size(41, 13);
+            this.lblFileStatus.TabIndex = 23;
+            this.lblFileStatus.Text = "Source";
+            // 
             // Sample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 391);
+            this.ClientSize = new System.Drawing.Size(813, 441);
+            this.Controls.Add(this.lblFileStatus);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblFileSource);
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.myCbxAudioOutputs);
             this.Controls.Add(this.myBtnDisableMouseEvents);
@@ -435,6 +501,12 @@
         private System.Windows.Forms.Button myBtnDisableMouseEvents;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox myCbxAudioOutputs;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.OpenFileDialog openMediaFileDialog;
+        private System.Windows.Forms.Label lblFileSource;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblFileStatus;
     }
 }
 
